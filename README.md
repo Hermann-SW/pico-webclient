@@ -29,6 +29,17 @@ cmake ..
 make
 ```
 
+Parallel build on 4 cores of Pi400 does take 13 seconds only to build from scratch or after "make clean"
+
+```
+pi@raspberrypi400:~/pico/pico-webclient/build $ time (make -j4 2>err >out)
+
+real	0m12.747s
+user	0m33.585s
+sys	0m10.965s
+pi@raspberrypi400:~/pico/pico-webclient/build $ 
+```
+
 Copy the resulting pico_webclient.uf2 file to the Pico mass storage device manually.  
 
 By default (SCENARIO=1 in CMakeLists.txt) Pico is accessing index.html on Pi400 webserver. In case you have no webserver running, you can start a simple one:
