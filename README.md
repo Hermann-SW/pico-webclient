@@ -1,7 +1,10 @@
 # pico-webclient
 
-This repo is based on [pico-webserver](https://github.com/maxnet/pico-webserver) webserver, which is example that came with TinyUSB slightly modified to run on a Raspberry Pi Pico.
-Lets the Pico pretend to be a USB Ethernet device (192.168.7.1), the computer the Pico is connected to over USB is 192.168.7.2. For me that is a Pi400, replace Pi400 with whatever computer you connect your Pico to.
+This repo is based on [pico-webserver](https://github.com/maxnet/pico-webserver) webserver, which is example that came with TinyUSB slightly modified to run on a Raspberry Pi Pico.  
+Lets the Pico pretend to be a USB Ethernet device (192.168.7.1), the computer the Pico is connected to over USB is 192.168.7.2. For me that is a Pi400, replace Pi400 with whatever computer you connect your Pico to.  
+The basic lwip based webclient functionality was taken from this posting, corrections and modifications done based on that:  
+[Re: How can I send a simple HTTP request with a lwIP stack?](https://stackoverflow.com/a/28105889)
+
 
 ## Build dependencies
 
