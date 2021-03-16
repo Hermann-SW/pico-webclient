@@ -26,9 +26,31 @@ cmake ..
 make
 ```
 
-Copy the resulting pico_webclient.uf2 file to the Pico mass storage device manually.
+Copy the resulting pico_webclient.uf2 file to the Pico mass storage device manually.  
+
 By default (SCENARIO=1 in CMakeLists.txt) Pico is accessing index.html on Pi400 webserver. In case you have no webserver running, you can start a simple one:
 ```
 sudo ./do_get.py
 ```
 
+Building with SCENARIO=2 in CMakeLists.txt does HTTPS GET request for /cgi-bin/sol.English.pl?60000 against stamm-wilbrandt.de. lwip as configured here cannot do HTTPS, so request goes through http2https.py proxy listening on port 4433 on 192.168.7.2, started with this command on the Pi400:
+```
+./http2https
+```
+
+Building with SCENARIO=3 in CMakeLists.txt needs NAT configured on the Pi400 for the Pico being able to access the internet. Pico does HTTP GET for index.html against neverssl.com. 
+```
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+sudo apt install nftables
+sudo nft add table nat
+sudo nft 'add chain nat postrouting { type nat hook postrouting priority 100 ; }'
+sudo nft add rule nat postrouting oif wlan0 masquerade
+```
+
+
+This is minicom session for /dev/serial0. While serial connection is not required for the demos, you need it in case you want to see the output of pico-webclient.  
+
+Pico LED starts on and goes off on successful receipt of response. In case of an error, endless blinking loop gets entered. So you can "see" whether HTTP[S] GET request succeeded, failed or even hangs (LED keeps on).
+
+This is minicom example session for scenario 2. You can reexecute by simply unplugging the USB cable and reconnecting it:
+![example of HTTPS GET internet request through http2https.py proxy](lwip.http_internet_http2https.png)
