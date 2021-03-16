@@ -48,7 +48,7 @@ sudo nft add rule nat postrouting oif wlan0 masquerade
 ```
 
 
-This is minicom session for /dev/serial0. While serial connection is not required for the demos, you need it in case you want to see the output of pico-webclient.  
+While serial connection from Pi400 to Pico is not required for the demos, you need it in case you want to see the output of pico-webclient.  
 
 Pico LED starts on and goes off on successful receipt of response. In case of an error, endless blinking loop gets entered. So you can "see" whether HTTP[S] GET request succeeded, failed or even hangs (LED keeps on).
 
