@@ -38,7 +38,7 @@ Building with SCENARIO=2 in CMakeLists.txt does HTTPS GET request for /cgi-bin/s
 ./http2https
 ```
 
-Building with SCENARIO=3 in CMakeLists.txt needs NAT configured on the Pi400 for the Pico being able to access the internet. Pico does HTTP GET for index.html against neverssl.com. 
+Building with SCENARIO=3 in CMakeLists.txt needs NAT configured on the Pi400 for the Pico being able to access the internet. Pico does HTTP GET for index.html against neverssl.com. Replace "wlan0" with "etho" in case Pi400 is connected via ethernet and not Wifi.
 ```
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 sudo apt install nftables
