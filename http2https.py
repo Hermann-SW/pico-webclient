@@ -2,7 +2,6 @@
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from http.client import HTTPSConnection
-from time import sleep
 
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
