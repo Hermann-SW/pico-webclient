@@ -48,6 +48,9 @@ By default (SCENARIO=1 in CMakeLists.txt) Pico is accessing index.html on Pi400 
 ```
 sudo ./do_get.py
 ```
+This is simple demonstration for SCENARIO=1:  
+![Peek_2021-03-16_22-00.gif](Peek_2021-03-16_22-00.gif)
+
 
 Building with SCENARIO=2 in CMakeLists.txt does HTTPS GET request for /cgi-bin/sol.English.pl?60000 against stamm-wilbrandt.de. lwip as configured here cannot do HTTPS, so request goes through http2https.py proxy listening on port 4433 on 192.168.7.2, started with this command on the Pi400:
 ```
