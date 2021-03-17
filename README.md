@@ -71,5 +71,5 @@ While serial connection from Pi400 to Pico is not required for the demos, you ne
 
 Pico LED starts on and goes off on successful receipt of response. In case of an error, endless blinking loop gets entered. So you can "see" whether HTTP[S] GET request succeeded, failed or even hangs (LED keeps on).
 
-This is minicom example session for scenario 2. You can reexecute by simply unplugging the USB cable and reconnecting it:
+This is minicom example session for scenario 2. You can reexecute by simply unplugging the USB cable and reconnecting it:  
 ![example of HTTPS GET internet request through http2https.py proxy](lwip.http_internet_http2https.png)
